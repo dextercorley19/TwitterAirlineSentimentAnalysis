@@ -1,0 +1,1820 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="174" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\dcmac14\AppData\Local\Temp\Engine_9048_5c9f118ec1f356418a4e655c5f5b1942_\Engine_9048_0881049fa704f1438d954365870a701a~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="150" y="360" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="tweet_id" selected="True" rename="Tweet ID" />
+            <SelectField field="airline_sentiment" selected="True" rename="Airline Sentiment" />
+            <SelectField field="airline_sentiment_confidence" selected="True" rename="Airline Sentiment Confidence" type="Double" size="8" />
+            <SelectField field="negativereason" selected="True" rename="Negative Reason" />
+            <SelectField field="negativereason_confidence" selected="True" rename="Negative Reason Confidence" type="Double" size="8" />
+            <SelectField field="airline" selected="True" rename="Airline" />
+            <SelectField field="airline_sentiment_gold" selected="True" rename="Airline Sentiment Gold" />
+            <SelectField field="name" selected="True" rename="Name" />
+            <SelectField field="negativereason_gold" selected="True" rename="Negative Reason Gold" />
+            <SelectField field="retweet_count" selected="True" rename="Retweet Count" />
+            <SelectField field="text" selected="True" rename="Tweet Text" />
+            <SelectField field="tweet_coord" selected="True" rename="Tweet Coord" />
+            <SelectField field="tweet_created" selected="True" rename="Tweet Created" />
+            <SelectField field="tweet_location" selected="True" rename="Tweet Location" />
+            <SelectField field="user_timezone" selected="True" rename="User Timezone" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="270" y="492" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Length([Tweet ID]) = 18 THEN [Tweet ID] ELSE &quot;Unknown&quot; ENDIF" field="Tweet ID" size="254" type="V_String" />
+            <FormulaField expression="IF [Airline Sentiment] == &quot;neutral&quot; OR [Airline Sentiment] == &quot;negative&quot; THEN [Airline Sentiment] ELSEIF [Airline Sentiment] == &quot;positive&quot; THEN [Airline Sentiment] ELSE &quot;Unknown&quot; ENDIF" field="Airline Sentiment" size="254" type="V_String" />
+            <FormulaField expression="IF [Airline Sentiment Confidence] &lt;= 1 THEN [Airline Sentiment Confidence] ELSE 100 ENDIF" field="Airline Sentiment Confidence" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tweet ID = IF Length([Tweet ID]) = 18 THEN [Tweet ID] ELSE "Unknown" ENDIF
+Airli...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="288" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">\\Mac\Home\Documents\Applied Analytics\Tweets.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>True</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tweets.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="tweet_id" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="airline_sentiment" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="airline_sentiment_confidence" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="negativereason" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="negativereason_confidence" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="airline" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="airline_sentiment_gold" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="name" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="negativereason_gold" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="retweet_count" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="text" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="tweet_coord" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="tweet_created" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="tweet_location" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+            <Field name="user_timezone" size="254" source="File: \\Mac\Home\Documents\Applied Analytics\Tweets.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="654" y="312" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Negative Reason Confidence] &lt;= 1 THEN [Negative Reason Confidence] ELSE 0 ENDIF" field="Negative Reason Confidence" size="8" type="Double" />
+            <FormulaField expression="IF IsNull([Airline]) THEN &quot;Unknown&quot; ELSE [Airline] ENDIF" field="Airline" size="254" type="V_String" />
+            <FormulaField expression="IF [Airline Sentiment Gold] = &quot;neutral&quot; THEN [Airline Sentiment Gold] ELSEIF [Airline Sentiment Gold] = &quot;positive&quot; OR [Airline Sentiment Gold] = &quot;negative&quot; THEN [Airline Sentiment gold] ELSE &quot;Unknown&quot; ENDIF" field="Airline Sentiment Gold" size="254" type="V_String" />
+            <FormulaField expression="IF IsNull([Name]) THEN &quot;Unknown&quot; ELSE [Name] ENDIF" field="Name" size="254" type="V_String" />
+            <FormulaField expression="IF IsNull([Negative Reason Gold]) THEN &quot;Unknown&quot; ELSE [Negative Reason Gold] ENDIF" field="Negative Reason Gold" size="254" type="V_String" />
+            <FormulaField expression="IF IsNull([Retweet Count]) THEN 0 ELSE [Retweet Count] ENDIF" field="Retweet Count" size="254" type="V_String" />
+            <FormulaField expression="IF IsNull([Tweet Text]) THEN &quot;Delete&quot; ELSE [Tweet Text] ENDIF" field="Tweet Text" size="254" type="V_String" />
+            <FormulaField expression="IF IsEmpty([Tweet Coord]) THEN &quot;[0.0, 0.0]&quot; ELSE [Tweet Coord] ENDIF" field="Tweet Coord" size="254" type="V_String" />
+            <FormulaField expression="IF [Airline Sentiment] = &quot;negative&quot; THEN &quot;Negative&quot; ELSE [Airline Sentiment] ENDIF" field="Airline Sentiment" size="254" type="V_String" />
+            <FormulaField expression="if [Airline Sentiment] = &quot;neutral&quot; then &quot;Neutral&quot; else [Airline Sentiment] endif" field="Airline Sentiment" size="254" type="V_String" />
+            <FormulaField expression="if [Airline Sentiment] = &quot;positive&quot; then &quot;Positive&quot; else [Airline Sentiment] endif" field="Airline Sentiment" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Negative Reason Confidence = IF [Negative Reason Confidence] &lt;= 1 THEN [Negative...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="942" y="312" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Retweet Count" selected="True" type="Double" size="8" />
+            <SelectField field="Tweet Created" selected="True" type="Date" size="10" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1518" y="96" width="612" height="60" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>For airline sentiment visualization.
+
+Cleaned data set by deleting all rows that: unknown tweet ID, unknown airline sentiment, unknown airline sentiment confidence,</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1518" y="168" width="600" height="156" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Full Cleaned Data set:
+Remove rows that: unknown tweet ID, unknown airline sentiment: unknown airline sentiment confidence, unknown negative reason, unknown negative reason confidence,  unknown airline, airline sentiment gold, negative reason gold, tweet text = delete.
+
+Make sure all data types are what they should be.
+
+Sort by airline then by sentiment in ascending order.
+
+Parse out duplicate Tweet ID's and delete leading or trailing whitespace in the text field
+
+Standardize amount of ratings per airline...?</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="66" y="444" width="312" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>cleaning tweet ID, airline sentiment, and airline sentiment conf. to only contain correct values or "unknown" for string fields and 100 for numeric</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="534" y="174" width="300" height="132" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Cleaning the rest of the variables except the last three to be the correct values or say "Unknown" for string types and "100" for numeric, indicating its bad data and could be subject to removal later in analysis. For negative reason confidence level change all nulls to 0 as there is no confidence in them and then will also not effect the dataset too heavily as there are 4000ish null values.  
+Formatting words that start with a lowercase letter</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="150" y="318" width="100" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Rename and fix variable type
+]]></Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="89">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1985" y="353" width="226" height="225" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Gold Values...</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="84">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2010" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Airline" selected="True" />
+                <SelectField field="Airline Sentiment Gold" selected="True" />
+                <SelectField field="Negative Reason Gold" selected="True" />
+                <SelectField field="Tweet Text" selected="True" />
+                <SelectField field="Tweet Location" selected="True" />
+                <SelectField field="User Timezone" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="86">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="2082" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>IF [Airline Sentiment Gold] = "Unknown" OR [Negative Reason Gold] THEN 0 ELSE 1 ENDIF</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>IF [Airline Sentiment Gold] = "Unknown" OR [Negative Reason Gold] THEN 0 ELSE 1 ...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="88">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1517" y="845" width="191" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Percentage Analysis</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="72">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1542" y="894" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Airline" action="GroupBy" rename="Airline" />
+                <SummarizeField field="Airline" action="Count" rename="Count" />
+                <SummarizeField field="Airline Sentiment" action="GroupBy" rename="Airline Sentiment" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="73">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1602" y="894" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Airline" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Airline - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="76">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1925" y="629" width="541" height="231" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Latitude Longitude</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="79">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="1950" y="684" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Tweet Coord</Field>
+              <ErrorHandling>Warn</ErrorHandling>
+              <RootName>Tweet Coord</RootName>
+              <Delimeters value="," />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="80">
+          <GuiSettings>
+            <Position x="2022" y="684" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"Retweet Count","Tweet Coord1","Tweet Coord2"</Value>
+              <Value name="Check Box (84)">True</Value>
+              <Value name="Check Box (117)">True</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="81">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2202" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Tweet ID" selected="True" />
+                <SelectField field="Airline Sentiment" selected="True" />
+                <SelectField field="Airline Sentiment Confidence" selected="True" />
+                <SelectField field="Negative Reason" selected="True" />
+                <SelectField field="Negative Reason Confidence" selected="True" />
+                <SelectField field="Airline" selected="True" />
+                <SelectField field="Name" selected="True" />
+                <SelectField field="Retweet Count" selected="True" />
+                <SelectField field="Tweet Text" selected="True" />
+                <SelectField field="Tweet Created" selected="True" />
+                <SelectField field="Tweet Location" selected="True" />
+                <SelectField field="User Timezone" selected="True" />
+                <SelectField field="Tweet Coord1" selected="True" rename="Latitude" type="Double" size="8" />
+                <SelectField field="Tweet Coord2" selected="True" rename="Longitude" type="Double" size="8" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="82">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2118" y="684" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="TrimLeft([Tweet Coord1], &quot;[&quot;)" field="Tweet Coord1" size="254" type="V_String" />
+                <FormulaField expression="TrimRight([Tweet Coord2], &quot;]&quot;)" field="Tweet Coord2" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Tweet Coord1 = TrimLeft([Tweet Coord1], "[")
+Tweet Coord2 = TrimRight([Tweet Coo...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="87">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2310" y="690" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [Latitude] = 0 THEN Null() ELSE [Latitude] ENDIF " field="Latitude" size="8" type="Double" />
+                <FormulaField expression="IF [Longitude] = 0 THEN Null() ELSE [Longitude] ENDIF " field="Longitude" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Latitude = IF [Latitude] = 0 THEN Null() ELSE [Latitude] ENDIF 
+Longitude = IF [...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="90">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2382" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\dcmac14\AppData\Local\Temp\Engine_9048_5c9f118ec1f356418a4e655c5f5b1942_\Engine_9048_a516112106ee51488a5296526e6b8a88~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2165" y="899" width="153" height="180" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Output</Caption>
+          <Style TextColor="#314c4a" FillColor="#8383fe" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="68">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2190" y="948" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">\\Mac\Home\Documents\Applied Analytics\Twitter_Clean_Tu.xlsx|||Twitter</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <SkipFieldNames>False</SkipFieldNames>
+                <OutputOption>RemoveFile</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Twitter_Clean_Tu.xlsx
+Query=Twitter</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1841" y="869" width="186" height="133" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Sentiment Analysis</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="74">
+          <GuiSettings Plugin="Sentiment">
+            <Position x="1866" y="918" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <language>EN</language>
+              <field>Tweet Text</field>
+              <algorithm>VADER</algorithm>
+              <tokenize>false</tokenize>
+              <categorical>true</categorical>
+              <negativeThreshold>-0.1</negativeThreshold>
+              <positiveThreshold>0.5</positiveThreshold>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="Python" EngineDllEntryPoint="Sentiment\sentiment_engine.py" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1481" y="383" width="397" height="409" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Cleaned</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="42">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1506" y="432" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>IF [Tweet ID] = "Unknown" OR [Airline Sentiment] = "Unknown" OR [Tweet Text] = "Delete" THEN 0 ELSE 1 ENDIF</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>IF [Tweet ID] = "Unknown" OR [Airline Sentiment] = "Unknown" OR [Tweet Text] = "...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="1686" y="444" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="Tweet ID" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings>
+            <Position x="1794" y="444" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"Tweet Text"</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="70">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1602" y="708" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Airline Sentiment Gold" selected="False" />
+                <SelectField field="Negative Reason Gold" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="75">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1734" y="540" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Airline" order="Ascending" />
+                <Field field="Airline Sentiment" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Airline - Ascending
+Airline Sentiment - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1037" y="335" width="402" height="373" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption><![CDATA[fixing Delta ]]></Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1158" y="492" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>Airline</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-09-30 12:13:12</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>Delta</Operand>
+                  <StartDate>2022-09-30 12:13:12</StartDate>
+                  <EndDate>2022-09-30 12:13:12</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Airline] = "Delta"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="35">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1062" y="492" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF Contains([Tweet Text], &quot;@JetBlue&quot;) THEN &quot;JetBlue&quot; ELSE [Airline] ENDIF" field="Airline" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Airline = IF Contains([Tweet Text], "@JetBlue") THEN "JetBlue" ELSE [Airline] EN...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="36">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1170" y="588" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\dcmac14\AppData\Local\Temp\Engine_9048_5c9f118ec1f356418a4e655c5f5b1942_\Engine_9048_d57beb332d6ecc40a1a56c1a3c738ba3~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1170" y="420" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Airline" action="GroupBy" rename="Airline" />
+                <SummarizeField field="Airline" action="Count" rename="Count" />
+                <SummarizeField field="Airline Sentiment" action="GroupBy" rename="Airline Sentiment" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="54">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="1266" y="624" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="7" />
+              <Fields>
+                <Field name="Tweet ID" />
+                <Field name="Replace" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>570267929322921985</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>570264515285266432</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>569667821455708160</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>569242143748964353</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>568602015456215040</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>568182544124014592</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>568757671819661314</c>
+                  <c>Unknown</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="1278" y="468" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Tweet ID</FieldFind>
+              <FieldSearch>Tweet ID</FieldSearch>
+              <ReplaceFoundField>Replace</ReplaceFoundField>
+              <FindMode>FindWhole</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="True" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1290" y="552" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Tweet ID" selected="True" type="V_String" size="21" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1350" y="384" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>Airline</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-09-30 12:13:12</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>Delta</Operand>
+                  <StartDate>2022-09-30 12:13:12</StartDate>
+                  <EndDate>2022-09-30 12:13:12</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Airline] = "Delta"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1085" y="54" width="152" height="180" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 26</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1110" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">\\Mac\Home\Documents\Applied Analytics\twitter_cleaned3.xlsx|||twitter</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <SkipFieldNames>False</SkipFieldNames>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>twitter_cleaned3.xlsx
+Query=twitter</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="773" y="431" width="205" height="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Airline F&amp;R</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="822" y="480" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Airline</FieldFind>
+              <FieldSearch>Field1</FieldSearch>
+              <ReplaceFoundField>Field2</ReplaceFoundField>
+              <FindMode>FindWhole</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="True" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="798" y="588" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="12" />
+              <Fields>
+                <Field name="Field1" />
+                <Field name="Field2" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>Tijuana</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Rossford, Ohio</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-22 14:22:00 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Arizona</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Arlington, VA</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Atlantic Highlands, NJ</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Eastern Time (US &amp; Canada)</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Edmond, Oklahoma</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Nashville Tennessee</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Pacific Time (US &amp; Canada)</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Quito</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>ÃT: 40.96513,-73.872957</c>
+                  <c>Unknown</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="894" y="552" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\dcmac14\AppData\Local\Temp\Engine_9048_5c9f118ec1f356418a4e655c5f5b1942_\Engine_9048_dcc93ccef2a48c42bc4f33fa35965abd~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="401" y="431" width="246" height="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Negative Reason F&amp;R</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="438" y="492" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Negative Reason</FieldFind>
+              <FieldSearch>Field1</FieldSearch>
+              <ReplaceFoundField>Field3</ReplaceFoundField>
+              <FindMode>FindWhole</FindMode>
+              <NoCase value="True" />
+              <MatchWholeWord value="True" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="426" y="588" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="77" />
+              <Fields>
+                <Field name="Field1" />
+                <Field name="Field3" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>Luxembourg</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-24 09:50:39 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Blue Ridge High School</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Florida, USA</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>NYC</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Newcastle, Uk</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>freyabevanfund@hotmail.com</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>new york city</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>1/3 whenever november</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-17 09:08:35 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-17 11:10:38 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-17 12:28:26 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-17 13:58:10 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-18 10:10:00 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-20 08:53:41 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-21 14:57:42 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-23 06:24:22 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-23 10:25:07 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-23 10:29:28 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-23 11:09:08 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-24 08:30:44 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-24 08:58:13 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-24 09:48:15 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-24 09:49:49 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>2015-02-24 09:50:55 -0800</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Atlanta, Ga.</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Austin, Texas</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Belgium</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Boston</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Canmore</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Charlotte, NC</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Chicago</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Chicago Illinois Crime.Inc</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Chicago, IL</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Cloud City, MA</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Columbus, OH</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Dallas Fort Worth</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Dallas, TX</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Helsinki Airport</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>I'm just a kid from Oak Harbor</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>In my mind</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Irvine, CA</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>LA / NYC</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>London</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Los Angeles</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Louisville, KY</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Madrid (Spain)</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Maryland</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Miami</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Montreal</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Mumbai</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>NH, United States</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Nashville, TN +309+ +320+</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>New York City</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>New York, NY</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>North Jersey</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>NÃ¼rnberg, Germany</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>PDX JFK SFO BDL</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Park City</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Pocos de Caldas</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Silicon Valley, California</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>South Florida</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Southern California and Hawaii</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Stamford, CT</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Sun Devil Territory</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Tampa / St Petersburg ,Florida</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Toronto</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>Toronto (formerly NYC)</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>USA</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>United States</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>bonkers in Yonkers</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>east brunswick, nj</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>ottawa</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>rented van drove to toledo. 5 hr drive."</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>usa::fr::uk</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>ÃT: 34.078171,-118.285555</c>
+                  <c>Unknown</c>
+                </r>
+                <r>
+                  <c>ÃT: 42.798909,-71.542817</c>
+                  <c>Unknown</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="522" y="480" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF IsNull([Negative Reason]) THEN &quot;Unknown&quot; ELSE [Negative Reason] ENDIF" field="Negative Reason" size="254" type="V_String" />
+                <FormulaField expression="IF [Negative Reason] = &quot;longlines&quot; THEN &quot;Long Lines&quot; ELSE [Negative Reason] ENDIF" field="Negative Reason" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Negative Reason = IF IsNull([Negative Reason]) THEN "Unknown" ELSE [Negative Rea...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="14" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="14" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="22" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="22" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="84" Connection="Output" />
+      <Destination ToolID="86" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="73" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="79" Connection="Output" />
+      <Destination ToolID="80" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output26" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="81" Connection="Output" />
+      <Destination ToolID="87" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output" />
+      <Destination ToolID="90" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="True" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Unique" />
+      <Destination ToolID="67" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output26" />
+      <Destination ToolID="75" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="74" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="79" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="70" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="84" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="55" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="55" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Homework1FinalWKFLoDexter</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="fb423446-96dc-4b28-9a6d-0bb745422e5b" />
+      <Telemetry>
+        <PreviousWorkflowId value="86e59a1c-e10c-4480-a98c-5fd5152334aa" />
+        <OriginWorkflowId value="b117a505-8685-40af-8123-4134b98f0bef" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
