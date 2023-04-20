@@ -4,7 +4,6 @@
 ### [Final Presentation](/TwitterSentimentPPT.pptx) & [Alteryx Workflow](/TwitterSentimentFinalWKFLO.yxmd)
 
 
-Complete data assessment of dataset and outline findings
  
 # Project Outline
 
