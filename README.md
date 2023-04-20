@@ -1,6 +1,11 @@
 # TwitterAirlineSentimentAnalysis
 **Analysis of Twitter Sentiment data from [Kaggle dataset](https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment)**
 
+## [Final Presentation](/TwitterSentimentPPT.pptx)
+
+##[Alteryx Workflow](/TwitterSentimentFinalWKFLO.yxmd)
+
+
 Complete data assessment of dataset and outline findings
  
 
